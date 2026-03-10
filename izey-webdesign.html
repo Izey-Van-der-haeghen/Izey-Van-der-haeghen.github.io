@@ -104,6 +104,62 @@
 
   .nav-cta:hover { background: var(--navy-light) !important; }
 
+  /* Language picker */
+  .lang-picker {
+    position: relative;
+  }
+
+  .lang-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 0.7rem;
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .lang-btn:hover {
+    border-color: var(--navy);
+  }
+
+  .lang-dropdown {
+    display: none;
+    position: absolute;
+    top: calc(100% + 6px);
+    right: 0;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    min-width: 120px;
+    z-index: 200;
+  }
+
+  .lang-dropdown.open { display: block; }
+
+  .lang-dropdown a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 0.9rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text) !important;
+    text-decoration: none;
+    transition: background 0.15s;
+  }
+
+  .lang-dropdown a:hover { background: var(--cream); }
+  .lang-dropdown a.active { font-weight: 700; color: var(--navy) !important; }
+
   /* Mobile menu */
   .menu-toggle {
     display: none;
@@ -1168,11 +1224,20 @@
       <li><a href="#over">Over mij</a></li>
       <li><a href="#werkwijze">Werkwijze</a></li>
       <li><a href="#pakketten">Pakketten</a></li>
-      <li><a href="#contact" class="nav-cta">Gratis gesprek</a></li>
+      <li><a href="https://wa.me/32472891566" class="nav-cta" style="background:var(--success);">WhatsApp</a></li>
     </ul>
-    <button class="menu-toggle" id="menuToggle" aria-label="Menu openen">
-      <span></span><span></span><span></span>
-    </button>
+    <div style="display:flex;align-items:center;gap:0.8rem;">
+      <div class="lang-picker">
+        <button class="lang-btn" id="langBtn">NL &#9662;</button>
+        <div class="lang-dropdown" id="langDropdown">
+          <a href="index.html" class="active">NL Nederlands</a>
+          <a href="fr.html">FR Fran&ccedil;ais</a>
+        </div>
+      </div>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu openen">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
 </nav>
 
@@ -1329,7 +1394,7 @@
       <!-- ONE-PAGER -->
       <div class="pricing-card reveal">
         <h3>One-Pager</h3>
-        <div class="price">&euro;1.400 <span>eenmalig</span></div>
+        <div class="price">&euro;1.400 <span>excl. btw</span></div>
         <div class="desc">Een krachtige website op 1 pagina. Alles wat je klant moet weten, overzichtelijk bij elkaar.</div>
         <ul>
           <li>Professionele website (1 pagina)</li>
@@ -1347,7 +1412,7 @@
       <div class="pricing-card featured reveal">
         <div class="card-badge">Meest gekozen</div>
         <h3>Multi-Page</h3>
-        <div class="price">&euro;3.500 <span>eenmalig</span></div>
+        <div class="price">&euro;3.500 <span>excl. btw</span></div>
         <div class="desc">Meerdere pagina's voor wie meer te vertellen heeft. Ideaal als je verschillende diensten aanbiedt.</div>
         <ul>
           <li>Website met meerdere pagina's</li>
@@ -1363,14 +1428,14 @@
       <!-- ONDERHOUD -->
       <div class="pricing-card reveal">
         <h3>Onderhoud</h3>
-        <div class="price">&euro;100<span>/maand</span></div>
+        <div class="price">&euro;100<span>/maand excl. btw</span></div>
         <div class="desc">Ik hou je website up-to-date, veilig en snel. Komt bovenop je gratis maanden.</div>
         <ul>
           <li>Hosting inbegrepen</li>
           <li>Kleine aanpassingen aan je site</li>
           <li>Ik hou in de gaten of je site online is</li>
           <li>Maandelijks verslag over je vindbaarheid</li>
-          <li>Betaal per jaar &euro;1.000 (bespaar &euro;200)</li>
+          <li>Betaal per jaar &euro;1.000 excl. btw (bespaar &euro;200)</li>
         </ul>
         <a href="#contact" class="btn-card outline">Start onderhoud</a>
       </div>
@@ -1445,7 +1510,7 @@
         <p>Stuur me een berichtje en ik neem binnen 24 uur contact op. Vrijblijvend kennismaken kan altijd!</p>
         <div class="contact-detail">
           <div class="contact-icon">&#128172;</div>
-          <span><a href="https://wa.me/32472891566">0472 89 15 66 (WhatsApp, dag & nacht)</a></span>
+          <span><a href="https://wa.me/32472891566">0472 89 15 66 (WhatsApp, 24/7)</a></span>
         </div>
         <div class="contact-detail">
           <div class="contact-icon">&#9993;</div>
@@ -1541,6 +1606,15 @@
       navLinks.classList.remove('open');
     });
   });
+
+  // Language picker
+  const langBtn = document.getElementById('langBtn');
+  const langDropdown = document.getElementById('langDropdown');
+  langBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    langDropdown.classList.toggle('open');
+  });
+  document.addEventListener('click', () => langDropdown.classList.remove('open'));
 
   // FAQ accordion
   document.querySelectorAll('.faq-question').forEach(btn => {
