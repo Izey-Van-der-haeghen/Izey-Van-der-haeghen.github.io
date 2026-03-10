@@ -104,6 +104,18 @@
 
   .nav-cta:hover { background: var(--navy-light) !important; }
 
+  .nav-wa {
+    padding: 0.55rem 1.3rem;
+    background: #25D366 !important;
+    color: white !important;
+    border-radius: 8px;
+    font-weight: 600 !important;
+    font-size: 0.88rem !important;
+    transition: background 0.2s !important;
+  }
+
+  .nav-wa:hover { background: #1DA851 !important; }
+
   /* Language picker */
   .lang-picker {
     position: relative;
@@ -1224,20 +1236,19 @@
       <li><a href="#over">A propos</a></li>
       <li><a href="#werkwijze">M&eacute;thode</a></li>
       <li><a href="#pakketten">Formules</a></li>
-      <li><a href="https://wa.me/32472891566" class="nav-cta" style="background:var(--success);">WhatsApp</a></li>
-    </ul>
-    <div style="display:flex;align-items:center;gap:0.8rem;">
-      <div class="lang-picker">
+      <li><a href="https://wa.me/32472891566" class="nav-wa">WhatsApp</a></li>
+      <li><a href="#contact" class="nav-cta">Consultation gratuite</a></li>
+      <li class="lang-picker">
         <button class="lang-btn" id="langBtn">FR &#9662;</button>
         <div class="lang-dropdown" id="langDropdown">
           <a href="index.html">NL Nederlands</a>
           <a href="fr.html" class="active">FR Fran&ccedil;ais</a>
         </div>
-      </div>
-      <button class="menu-toggle" id="menuToggle" aria-label="Ouvrir le menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
+      </li>
+    </ul>
+    <button class="menu-toggle" id="menuToggle" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
 
