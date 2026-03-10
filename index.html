@@ -1,0 +1,1550 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Izey Van der Haeghen | Webdesign voor Zelfstandigen</title>
+<meta name="description" content="Professionele websites voor zelfstandigen in België. One-pagers die klanten aantrekken, met SEO inbegrepen. Eerlijke prijzen, persoonlijke aanpak.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1B2A4A;
+    --navy-light: #2D4066;
+    --blue: #3B6B9E;
+    --accent: #D97706;
+    --accent-light: #F59E0B;
+    --accent-bg: #FEF3C7;
+    --warm-white: #FAFAF8;
+    --cream: #F5F3EF;
+    --card-bg: #FFFFFF;
+    --text: #2D3748;
+    --text-light: #64748B;
+    --text-lighter: #94A3B8;
+    --border: #E2E8F0;
+    --border-light: #F1F5F9;
+    --success: #059669;
+    --radius: 12px;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+    --shadow: 0 4px 20px rgba(0,0,0,0.06);
+    --shadow-lg: 0 10px 40px rgba(0,0,0,0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--warm-white);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ====== NAV ====== */
+  nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 0 2rem;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    transition: box-shadow 0.3s;
+  }
+
+  nav.scrolled { box-shadow: var(--shadow-sm); }
+
+  .nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 68px;
+  }
+
+  .logo {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.35rem;
+    color: var(--navy);
+    text-decoration: none;
+    letter-spacing: -0.3px;
+  }
+
+  .logo span { color: var(--accent); }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    align-items: center;
+  }
+
+  .nav-links a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 0.92rem;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--navy); }
+
+  .nav-cta {
+    padding: 0.55rem 1.3rem;
+    background: var(--navy);
+    color: white !important;
+    border-radius: 8px;
+    font-weight: 600 !important;
+    font-size: 0.88rem !important;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--navy-light) !important; }
+
+  /* Mobile menu */
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+
+  .menu-toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--navy);
+    margin: 5px 0;
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+
+  .menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  .menu-toggle.active span:nth-child(2) { opacity: 0; }
+  .menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
+  /* ====== HERO ====== */
+  .hero {
+    padding: 10rem 2rem 6rem;
+    background: linear-gradient(165deg, var(--warm-white) 0%, var(--cream) 50%, #EDE9E0 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(217,119,6,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .hero-content { position: relative; z-index: 1; }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.45rem 1rem;
+    background: var(--accent-bg);
+    color: var(--accent);
+    border-radius: 50px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    margin-bottom: 1.8rem;
+    border: 1px solid rgba(217,119,6,0.15);
+  }
+
+  .hero-badge::before {
+    content: '';
+    width: 7px;
+    height: 7px;
+    background: var(--accent);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: clamp(2.4rem, 4.5vw, 3.4rem);
+    line-height: 1.15;
+    color: var(--navy);
+    margin-bottom: 1.3rem;
+    letter-spacing: -0.5px;
+  }
+
+  .hero h1 em {
+    font-style: normal;
+    color: var(--accent);
+  }
+
+  .hero p {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    max-width: 480px;
+    margin-bottom: 2.2rem;
+    line-height: 1.75;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.85rem 1.8rem;
+    background: var(--navy);
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.2s;
+    box-shadow: 0 2px 12px rgba(27,42,74,0.2);
+  }
+
+  .btn-primary:hover {
+    background: var(--navy-light);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 20px rgba(27,42,74,0.25);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.85rem 1.8rem;
+    background: transparent;
+    color: var(--navy);
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border: 1.5px solid var(--border);
+    transition: all 0.2s;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--navy);
+    background: rgba(27,42,74,0.03);
+  }
+
+  /* Hero visual - mockup browser */
+  .hero-visual {
+    position: relative;
+    z-index: 1;
+  }
+
+  .browser-mockup {
+    background: var(--card-bg);
+    border-radius: 16px;
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+
+  .browser-bar {
+    padding: 0.8rem 1rem;
+    background: var(--border-light);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .browser-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #E2E8F0;
+  }
+
+  .browser-dot:nth-child(1) { background: #FCA5A5; }
+  .browser-dot:nth-child(2) { background: #FCD34D; }
+  .browser-dot:nth-child(3) { background: #86EFAC; }
+
+  .browser-url {
+    flex: 1;
+    margin-left: 0.5rem;
+    padding: 0.35rem 0.8rem;
+    background: white;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    color: var(--text-lighter);
+    border: 1px solid var(--border);
+  }
+
+  .browser-content {
+    padding: 2rem;
+    min-height: 280px;
+    background: linear-gradient(135deg, #FAFAF8 0%, #F0F0EC 100%);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mock-line {
+    height: 10px;
+    background: var(--border);
+    border-radius: 5px;
+  }
+
+  .mock-line.w80 { width: 80%; }
+  .mock-line.w60 { width: 60%; }
+  .mock-line.w40 { width: 40%; }
+
+  .mock-block {
+    width: 90%;
+    height: 50px;
+    background: var(--navy);
+    border-radius: 8px;
+    opacity: 0.08;
+  }
+
+  .mock-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.6rem;
+    width: 90%;
+  }
+
+  .mock-card {
+    height: 50px;
+    background: white;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+  }
+
+  /* Floating badges around mockup */
+  .float-badge {
+    position: absolute;
+    background: white;
+    padding: 0.6rem 1rem;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid var(--border-light);
+    animation: floatBadge 4s ease-in-out infinite;
+    z-index: 2;
+  }
+
+  .float-badge.top-left {
+    top: -12px;
+    left: -16px;
+    color: var(--success);
+    animation-delay: -1s;
+  }
+
+  .float-badge.bottom-right {
+    bottom: 20px;
+    right: -16px;
+    color: var(--accent);
+    animation-delay: -2.5s;
+  }
+
+  @keyframes floatBadge {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+
+  /* ====== SECTIONS COMMON ====== */
+  section { padding: 5.5rem 2rem; }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 3.5rem;
+  }
+
+  .section-label {
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+    color: var(--navy);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    letter-spacing: -0.3px;
+  }
+
+  .section-desc {
+    color: var(--text-light);
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+
+  /* ====== TRUST BAR ====== */
+  .trust-bar {
+    padding: 2.5rem 2rem;
+    background: white;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .trust-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.9rem;
+    color: var(--text-light);
+    font-weight: 500;
+  }
+
+  .trust-icon {
+    width: 36px;
+    height: 36px;
+    background: var(--cream);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+
+  /* ====== ABOUT ====== */
+  .about { background: white; }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 5fr 6fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .about-photo {
+    position: relative;
+  }
+
+  .about-photo-frame {
+    width: 100%;
+    aspect-ratio: 4/5;
+    background: linear-gradient(135deg, var(--cream), #E8E4DD);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+
+  .about-photo-initials {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--navy);
+    opacity: 0.15;
+  }
+
+  .about-photo-overlay {
+    position: absolute;
+    bottom: 1.2rem;
+    left: 1.2rem;
+    right: 1.2rem;
+    background: white;
+    border-radius: 10px;
+    padding: 1rem 1.2rem;
+    box-shadow: var(--shadow);
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .about-photo-overlay .icon-circle {
+    width: 38px;
+    height: 38px;
+    background: var(--accent-bg);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+
+  .about-photo-overlay .info {
+    font-size: 0.82rem;
+    line-height: 1.4;
+  }
+
+  .about-photo-overlay .info strong {
+    display: block;
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  .about-photo-overlay .info span {
+    color: var(--text-lighter);
+  }
+
+  .about-text .section-label { text-align: left; }
+  .about-text .section-title { text-align: left; }
+
+  .about-text p {
+    color: var(--text-light);
+    line-height: 1.8;
+    margin-bottom: 1.2rem;
+    font-size: 1rem;
+  }
+
+  .about-text strong { color: var(--navy); font-weight: 600; }
+
+  .about-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .stat-item h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: var(--navy);
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+  }
+
+  .stat-item span {
+    font-size: 0.82rem;
+    color: var(--text-lighter);
+    font-weight: 500;
+  }
+
+  /* ====== WERKWIJZE ====== */
+  .process { background: var(--cream); }
+
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+
+  .process-card {
+    background: white;
+    border-radius: var(--radius);
+    padding: 2rem 1.5rem;
+    border: 1px solid var(--border);
+    transition: all 0.2s;
+    position: relative;
+  }
+
+  .process-card:hover {
+    box-shadow: var(--shadow);
+    transform: translateY(-3px);
+  }
+
+  .process-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: var(--navy);
+    color: white;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .process-card h3 {
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--navy);
+    margin-bottom: 0.6rem;
+  }
+
+  .process-card p {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    line-height: 1.6;
+  }
+
+  /* ====== PRICING ====== */
+  .pricing { background: white; }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .pricing-card {
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2.2rem 1.8rem;
+    position: relative;
+    transition: all 0.25s;
+  }
+
+  .pricing-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-4px);
+  }
+
+  .pricing-card.featured {
+    background: var(--navy);
+    color: white;
+    border-color: var(--navy);
+    box-shadow: var(--shadow-lg);
+    transform: scale(1.02);
+  }
+
+  .pricing-card.featured:hover {
+    transform: scale(1.02) translateY(-4px);
+  }
+
+  .card-badge {
+    position: absolute;
+    top: -11px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent);
+    color: white;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 0.3rem 1rem;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    white-space: nowrap;
+  }
+
+  .pricing-card h3 {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+    color: var(--navy);
+  }
+
+  .pricing-card.featured h3 { color: white; }
+
+  .pricing-card .price {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 2.6rem;
+    color: var(--navy);
+    margin: 0.8rem 0;
+    line-height: 1;
+  }
+
+  .pricing-card.featured .price { color: white; }
+
+  .pricing-card .price span {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-lighter);
+  }
+
+  .pricing-card.featured .price span { color: rgba(255,255,255,0.6); }
+
+  .pricing-card .desc {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .pricing-card.featured .desc {
+    color: rgba(255,255,255,0.65);
+    border-bottom-color: rgba(255,255,255,0.15);
+  }
+
+  .pricing-card ul {
+    list-style: none;
+    margin-bottom: 2rem;
+  }
+
+  .pricing-card li {
+    padding: 0.45rem 0;
+    color: var(--text);
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .pricing-card.featured li { color: rgba(255,255,255,0.85); }
+
+  .pricing-card li::before {
+    content: '';
+    width: 18px;
+    height: 18px;
+    background: var(--success);
+    border-radius: 50%;
+    flex-shrink: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='white'%3E%3Cpath fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'/%3E%3C/svg%3E");
+    background-size: 12px;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .btn-card {
+    display: block;
+    text-align: center;
+    padding: 0.85rem;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.92rem;
+    transition: all 0.2s;
+  }
+
+  .btn-card.outline {
+    border: 1.5px solid var(--border);
+    color: var(--navy);
+    background: white;
+  }
+
+  .btn-card.outline:hover {
+    border-color: var(--navy);
+    background: var(--navy);
+    color: white;
+  }
+
+  .btn-card.filled {
+    background: var(--accent);
+    color: white;
+    border: 1.5px solid var(--accent);
+  }
+
+  .btn-card.filled:hover {
+    background: #B45309;
+    border-color: #B45309;
+  }
+
+  /* ====== FAQ ====== */
+  .faq { background: white; }
+
+  .faq-grid {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .faq-question {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.3rem 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--navy);
+    text-align: left;
+    gap: 1rem;
+  }
+
+  .faq-question:hover { color: var(--accent); }
+
+  .faq-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--cream);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    color: var(--text-light);
+    flex-shrink: 0;
+    transition: transform 0.3s, background 0.3s;
+  }
+
+  .faq-item.active .faq-icon {
+    transform: rotate(45deg);
+    background: var(--navy);
+    color: white;
+  }
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease, padding 0.35s ease;
+  }
+
+  .faq-item.active .faq-answer {
+    max-height: 200px;
+    padding-bottom: 1.3rem;
+  }
+
+  .faq-answer p {
+    font-size: 0.92rem;
+    color: var(--text-light);
+    line-height: 1.7;
+  }
+
+  /* ====== CONTACT ====== */
+  .contact {
+    background: var(--cream);
+  }
+
+  .contact-wrapper {
+    display: grid;
+    grid-template-columns: 5fr 6fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .contact-info h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 2rem;
+    color: var(--navy);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  .contact-info > p {
+    color: var(--text-light);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    font-size: 1rem;
+  }
+
+  .contact-detail {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .contact-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    border: 1px solid var(--border);
+  }
+
+  .contact-detail span {
+    font-size: 0.92rem;
+    color: var(--text);
+  }
+
+  .contact-detail a {
+    color: var(--navy);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .contact-detail a:hover { color: var(--accent); }
+
+  .contact-guarantee {
+    margin-top: 2rem;
+    padding: 1.2rem;
+    background: white;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+
+  .contact-guarantee .g-icon {
+    font-size: 1.3rem;
+    line-height: 1;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .contact-guarantee p {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    line-height: 1.5;
+  }
+
+  .contact-guarantee strong {
+    color: var(--navy);
+    display: block;
+    margin-bottom: 0.15rem;
+    font-size: 0.88rem;
+  }
+
+  .contact-form {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2.2rem;
+    box-shadow: var(--shadow);
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .form-group {
+    margin-bottom: 1rem;
+  }
+
+  .form-group label {
+    display: block;
+    font-weight: 600;
+    font-size: 0.82rem;
+    margin-bottom: 0.4rem;
+    color: var(--text);
+  }
+
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background: var(--warm-white);
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.92rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus,
+  .form-group select:focus {
+    border-color: var(--navy);
+    box-shadow: 0 0 0 3px rgba(27,42,74,0.08);
+    background: white;
+  }
+
+  .form-group textarea {
+    resize: vertical;
+    min-height: 110px;
+  }
+
+  .form-group input::placeholder,
+  .form-group textarea::placeholder {
+    color: var(--text-lighter);
+  }
+
+  .btn-submit {
+    width: 100%;
+    padding: 0.9rem;
+    background: var(--navy);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 2px 12px rgba(27,42,74,0.15);
+  }
+
+  .btn-submit:hover {
+    background: var(--navy-light);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 20px rgba(27,42,74,0.2);
+  }
+
+  /* ====== FOOTER ====== */
+  footer {
+    padding: 3rem 2rem;
+    background: var(--navy);
+    color: rgba(255,255,255,0.5);
+  }
+
+  .footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: white;
+  }
+
+  .footer-logo span { color: var(--accent-light); }
+
+  footer p { font-size: 0.82rem; }
+
+  .footer-links {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+  }
+
+  .footer-links a {
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    font-size: 0.82rem;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: white; }
+
+  /* ====== MOBILE ====== */
+  @media (max-width: 900px) {
+    .hero-inner {
+      grid-template-columns: 1fr;
+      text-align: center;
+      gap: 3rem;
+    }
+
+    .hero p { margin-left: auto; margin-right: auto; }
+    .hero-cta { justify-content: center; }
+
+    .process-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .pricing-grid {
+      grid-template-columns: 1fr;
+      max-width: 420px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .pricing-card.featured {
+      transform: none;
+    }
+
+    .pricing-card.featured:hover {
+      transform: translateY(-4px);
+    }
+
+    .testimonial-grid {
+      grid-template-columns: 1fr;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 68px;
+      left: 0;
+      right: 0;
+      background: white;
+      flex-direction: column;
+      padding: 1.5rem 2rem;
+      gap: 0.8rem;
+      border-bottom: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    .nav-links.open { display: flex; }
+    .nav-cta { text-align: center; }
+    .menu-toggle { display: block; }
+
+    .hero { padding: 8rem 1.5rem 4rem; }
+
+    .about-grid,
+    .contact-wrapper {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+
+    .about-photo { order: -1; }
+    .about-text .section-label,
+    .about-text .section-title { text-align: center; }
+    .about-text p { text-align: center; }
+
+    .process-grid {
+      grid-template-columns: 1fr;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .form-row { grid-template-columns: 1fr; }
+
+    section { padding: 4rem 1.5rem; }
+
+    .footer-inner {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+
+  /* ====== SCROLL REVEAL ====== */
+  .reveal {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="logo">izey<span>.</span>dev</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#over">Over mij</a></li>
+      <li><a href="#werkwijze">Werkwijze</a></li>
+      <li><a href="#pakketten">Pakketten</a></li>
+      <li><a href="#contact" class="nav-cta">Gratis gesprek</a></li>
+    </ul>
+    <button class="menu-toggle" id="menuToggle" aria-label="Menu openen">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">Websites voor zelfstandigen</div>
+      <h1>Een professionele website die <em>klanten oplevert.</em></h1>
+      <p>Nog geen website? Geen probleem. Ik bouw een mooie, snelle website voor jouw zaak die bovenaan in Google verschijnt. Zo vinden nieuwe klanten jou, in plaats van andersom.</p>
+      <div class="hero-cta">
+        <a href="#pakketten" class="btn-primary">Bekijk pakketten</a>
+        <a href="#contact" class="btn-secondary">Gratis kennismaking</a>
+      </div>
+    </div>
+    <div class="hero-visual reveal">
+      <div class="browser-mockup">
+        <div class="browser-bar">
+          <div class="browser-dot"></div>
+          <div class="browser-dot"></div>
+          <div class="browser-dot"></div>
+          <div class="browser-url">jouwbedrijf.be</div>
+        </div>
+        <div class="browser-content">
+          <div class="mock-line w80"></div>
+          <div class="mock-line w60"></div>
+          <div class="mock-block"></div>
+          <div class="mock-grid">
+            <div class="mock-card"></div>
+            <div class="mock-card"></div>
+            <div class="mock-card"></div>
+          </div>
+          <div class="mock-line w40"></div>
+        </div>
+      </div>
+      <div class="float-badge top-left">
+        <svg width="14" height="14" viewBox="0 0 20 20" fill="#059669"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+        SEO-geoptimaliseerd
+      </div>
+      <div class="float-badge bottom-right">
+        <svg width="14" height="14" viewBox="0 0 20 20" fill="#D97706"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        Mobielvriendelijk
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-inner">
+    <div class="trust-item">
+      <div class="trust-icon">&#9889;</div>
+      <span>Snelle oplevering</span>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">&#128270;</div>
+      <span>Vindbaar in Google</span>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">&#128241;</div>
+      <span>100% mobielvriendelijk</span>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">&#129309;</div>
+      <span>Persoonlijk contact</span>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="over">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-photo reveal">
+        <div class="about-photo-frame">
+          <div class="about-photo-initials">IVH</div>
+          <div class="about-photo-overlay">
+            <div class="icon-circle">&#127919;</div>
+            <div class="info">
+              <strong>SEO Expert & Webdesigner</strong>
+              <span>Gevestigd in Belgie</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="about-text reveal">
+        <div class="section-label">Over mij</div>
+        <h2 class="section-title">Izey Van der Haeghen</h2>
+        <p>In mijn hoofdberoep ben ik <strong>SEO Expert</strong>. SEO staat voor Search Engine Optimization, oftewel: ervoor zorgen dat jouw website bovenaan verschijnt wanneer iemand in Google zoekt naar wat jij aanbiedt. Denk aan "kapper Gent" of "loodgieter Antwerpen".</p>
+        <p>Daarnaast heb ik <strong>Web Design & Development gestudeerd</strong>. Dat betekent dat ik niet alleen weet hoe een website gevonden wordt, maar ook hoe je er eentje bouwt die er professioneel uitziet en goed werkt op telefoon, tablet en computer.</p>
+        <p>Ik help zelfstandigen, van schoonheidsspecialisten tot bakkers, van loodgieters tot kappers, met hun <strong>eerste professionele website</strong>. Geen ingewikkeld gedoe, gewoon een duidelijke website die klanten oplevert.</p>
+        <p>Persoonlijke aanpak. Duidelijke communicatie. Eerlijke prijzen.</p>
+        <div class="about-stats">
+          <div class="stat-item">
+            <h4>100%</h4>
+            <span>Mobielvriendelijk</span>
+          </div>
+          <div class="stat-item">
+            <h4>&lt;1 week</h4>
+            <span>Levertijd</span>
+          </div>
+          <div class="stat-item">
+            <h4>SEO</h4>
+            <span>Altijd inbegrepen</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WERKWIJZE -->
+<section class="process" id="werkwijze">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Werkwijze</div>
+      <h2 class="section-title">In 4 stappen naar jouw website</h2>
+      <p class="section-desc">Geen ingewikkelde processen. Ik houd het simpel zodat jij je kunt focussen op je zaak.</p>
+    </div>
+    <div class="process-grid">
+      <div class="process-card reveal">
+        <div class="process-number">1</div>
+        <h3>Kennismaking</h3>
+        <p>We bespreken je wensen, je doelgroep en wat je website moet bereiken. Gratis en vrijblijvend.</p>
+      </div>
+      <div class="process-card reveal">
+        <div class="process-number">2</div>
+        <h3>Ontwerp</h3>
+        <p>Ik maak een ontwerp op maat dat past bij jouw zaak. Je geeft feedback en we verfijnen samen.</p>
+      </div>
+      <div class="process-card reveal">
+        <div class="process-number">3</div>
+        <h3>Bouw & Google</h3>
+        <p>Je website wordt gebouwd en zo ingesteld dat klanten je kunnen vinden via Google.</p>
+      </div>
+      <div class="process-card reveal">
+        <div class="process-number">4</div>
+        <h3>Lancering</h3>
+        <p>We zetten je website live. Ik regel hosting, domein en alles wat erbij komt kijken.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pakketten">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Pakketten</div>
+      <h2 class="section-title">Een pakket voor elke zelfstandige</h2>
+      <p class="section-desc">Duidelijke prijzen, geen verborgen kosten. Elke website werkt perfect op telefoon en computer, en wordt vindbaar gemaakt in Google.</p>
+    </div>
+    <div class="pricing-grid">
+      <!-- ONE-PAGER -->
+      <div class="pricing-card reveal">
+        <h3>One-Pager</h3>
+        <div class="price">&euro;1.400 <span>eenmalig</span></div>
+        <div class="desc">Een krachtige website op 1 pagina. Alles wat je klant moet weten, overzichtelijk bij elkaar.</div>
+        <ul>
+          <li>Professionele website (1 pagina)</li>
+          <li>Werkt op telefoon, tablet & computer</li>
+          <li>Contactformulier</li>
+          <li>Vindbaar in Google</li>
+          <li>Hosting & domein hulp</li>
+          <li>1 maand gratis onderhoud inbegrepen</li>
+        </ul>
+        <a href="#contact" class="btn-card outline">Kies One-Pager</a>
+      </div>
+      <!-- MULTI-PAGE -->
+      <div class="pricing-card featured reveal">
+        <div class="card-badge">Meest gekozen</div>
+        <h3>Multi-Page</h3>
+        <div class="price">&euro;3.500 <span>eenmalig</span></div>
+        <div class="desc">Meerdere pagina's voor wie meer te vertellen heeft. Ideaal als je verschillende diensten aanbiedt.</div>
+        <ul>
+          <li>Website met meerdere pagina's</li>
+          <li>Hulp bij het schrijven van teksten</li>
+          <li>Vindbaar in Google en op Google Maps</li>
+          <li>Koppeling met social media</li>
+          <li>Snelle laadtijd gegarandeerd</li>
+          <li>3 maanden gratis onderhoud inbegrepen</li>
+        </ul>
+        <a href="#contact" class="btn-card filled">Kies Multi-Page</a>
+      </div>
+      <!-- ONDERHOUD -->
+      <div class="pricing-card reveal">
+        <h3>Onderhoud</h3>
+        <div class="price">&euro;100<span>/maand</span></div>
+        <div class="desc">Ik hou je website up-to-date, veilig en snel. Komt bovenop je gratis maanden.</div>
+        <ul>
+          <li>Hosting inbegrepen</li>
+          <li>Kleine aanpassingen aan je site</li>
+          <li>Ik hou in de gaten of je site online is</li>
+          <li>Maandelijks verslag over je vindbaarheid</li>
+          <li>Betaal per jaar &euro;1.000 (bespaar &euro;200)</li>
+        </ul>
+        <a href="#contact" class="btn-card outline">Start onderhoud</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Veelgestelde vragen</div>
+      <h2 class="section-title">Nog vragen?</h2>
+    </div>
+    <div class="faq-grid reveal">
+      <div class="faq-item">
+        <button class="faq-question">
+          Hoe lang duurt het om mijn website te maken?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>De meeste websites lever ik op binnen 5 tot 7 werkdagen na ontvangst van alle teksten en afbeeldingen. Heb je haast? Laat het me weten, dan kijken we samen naar de mogelijkheden.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          Moet ik zelf teksten en foto's aanleveren?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Foto's van je zaak of diensten lever je zelf aan (telefoonfoto's zijn prima!). Bij het Professioneel pakket help ik je ook met het schrijven van goede teksten voor op je website.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          Kan ik later nog wijzigingen laten doen?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Zeker! Met het onderhoudspakket zijn kleine wijzigingen inbegrepen. Zonder onderhoudspakket kun je altijd losse wijzigingen aanvragen tegen een eerlijke prijs.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          Wat is SEO en waarom heb ik dat nodig?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>SEO staat voor Search Engine Optimization. Simpel gezegd: het zorgt ervoor dat jouw website gevonden wordt in Google. Als iemand in jouw buurt zoekt naar wat jij aanbiedt, wil je dat jouw website bovenaan staat. Zonder SEO is je website als een winkel in een steegje waar niemand langskomt.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          Wat als ik nog geen domeinnaam of hosting heb?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Geen probleem! Ik help je met het kiezen en opzetten van een domeinnaam en hosting. Dat zit inbegrepen bij elk pakket.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="contact-wrapper">
+      <div class="contact-info reveal">
+        <div class="section-label">Contact</div>
+        <h2>Klaar om je zaak online te laten groeien?</h2>
+        <p>Stuur me een berichtje en ik neem binnen 24 uur contact op. Vrijblijvend kennismaken kan altijd!</p>
+        <div class="contact-detail">
+          <div class="contact-icon">&#9993;</div>
+          <span><a href="mailto:vanderhaeghenizey@gmail.com">vanderhaeghenizey@gmail.com</a></span>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-icon">&#128205;</div>
+          <span>Belgie</span>
+        </div>
+        <div class="contact-guarantee">
+          <div class="g-icon">&#9989;</div>
+          <p><strong>Niet tevreden? Geld terug.</strong>Ben je niet 100% tevreden met het eindresultaat? Dan krijg je je geld volledig terug. Zo zeker ben ik van mijn werk.</p>
+        </div>
+      </div>
+      <div class="contact-form reveal">
+        <form action="https://formsubmit.co/vanderhaeghenizey@gmail.com" method="POST">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_subject" value="Nieuw bericht via izey.dev">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Naam</label>
+              <input type="text" name="naam" placeholder="Je volledige naam" required>
+            </div>
+            <div class="form-group">
+              <label>E-mail</label>
+              <input type="email" name="email" placeholder="je@email.com" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Pakket</label>
+            <select name="pakket">
+              <option value="">Kies een pakket (optioneel)</option>
+              <option value="One-Pager">One-Pager | &euro;1.400</option>
+              <option value="Multi-Page">Multi-Page | &euro;3.500</option>
+              <option value="Onderhoud">Onderhoud | &euro;100/maand</option>
+              <option value="Weet nog niet">Ik weet het nog niet</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Bericht</label>
+            <textarea name="bericht" placeholder="Vertel kort over je zaak en wat je nodig hebt..." required></textarea>
+          </div>
+          <button type="submit" class="btn-submit">Verstuur bericht</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">izey<span>.</span>dev</div>
+    <p>&copy; 2026 Izey Van der Haeghen. Alle rechten voorbehouden.</p>
+    <ul class="footer-links">
+      <li><a href="#over">Over</a></li>
+      <li><a href="#pakketten">Pakketten</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Nav shadow on scroll
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 10);
+  });
+
+  // Mobile menu toggle
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+  menuToggle.addEventListener('click', () => {
+    menuToggle.classList.toggle('active');
+    navLinks.classList.toggle('open');
+  });
+
+  // Close menu on link click
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      menuToggle.classList.remove('active');
+      navLinks.classList.remove('open');
+    });
+  });
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.parentElement;
+      const isActive = item.classList.contains('active');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+      if (!isActive) item.classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>
