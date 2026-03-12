@@ -28,7 +28,7 @@ function revokeGA() {
   });
 }
 
-if (localStorage.getItem('cookies-accepted') === 'true') { loadGA(); }
+try { if (localStorage.getItem('cookies-accepted') === 'true') { loadGA(); } } catch(e) {}
 
 // Scroll reveal
 var reveals = document.querySelectorAll('.reveal');
@@ -167,13 +167,11 @@ document.querySelectorAll('.faq-question').forEach(function(btn) {
     updateWaPosition();
   }
 
-  if (!localStorage.getItem('cookies-accepted')) {
-    showBanner();
-  }
+  try { if (!localStorage.getItem('cookies-accepted')) { showBanner(); } } catch(e) { showBanner(); }
 
   if (cookieAccept) {
     cookieAccept.addEventListener('click', function() {
-      localStorage.setItem('cookies-accepted', 'true');
+      try { localStorage.setItem('cookies-accepted', 'true'); } catch(e) {}
       hideBanner();
       loadGA();
     });
@@ -181,7 +179,7 @@ document.querySelectorAll('.faq-question').forEach(function(btn) {
 
   if (cookieDecline) {
     cookieDecline.addEventListener('click', function() {
-      localStorage.setItem('cookies-accepted', 'false');
+      try { localStorage.setItem('cookies-accepted', 'false'); } catch(e) {}
       hideBanner();
       revokeGA();
     });
@@ -189,7 +187,7 @@ document.querySelectorAll('.faq-question').forEach(function(btn) {
 
   if (cookieSettings) {
     cookieSettings.addEventListener('click', function() {
-      localStorage.removeItem('cookies-accepted');
+      try { localStorage.removeItem('cookies-accepted'); } catch(e) {}
       showBanner();
     });
   }

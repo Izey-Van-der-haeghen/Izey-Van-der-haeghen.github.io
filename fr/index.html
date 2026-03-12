@@ -45,6 +45,52 @@
       "inLanguage": "fr-BE",
       "isPartOf": { "@id": "https://izey.dev/#website" },
       "about": { "@id": "https://izey.dev/#organization" }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://izey.dev/fr/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Combien de temps faut-il pour cr\u00e9er mon site ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La plupart des sites sont livr\u00e9s dans les 5 \u00e0 7 jours ouvrables apr\u00e8s r\u00e9ception de tous les textes et images."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Dois-je fournir les textes et photos moi-m\u00eame ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Les photos de votre activit\u00e9 ou de vos services, c\u2019est vous qui les fournissez. Avec la formule Multi-Page, je vous aide aussi \u00e0 r\u00e9diger de bons textes pour votre site."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Est-ce que je peux faire des modifications plus tard ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Bien s\u00fbr ! Avec la formule maintenance, les petites modifications sont incluses. Sans maintenance, vous pouvez toujours demander des modifications ponctuelles \u00e0 un prix honn\u00eate."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "C\u2019est quoi le SEO et pourquoi j\u2019en ai besoin ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "SEO, c\u2019est Search Engine Optimization. En gros : \u00e7a fait en sorte que votre site apparaisse dans Google. Si quelqu\u2019un pr\u00e8s de chez vous cherche ce que vous proposez, vous voulez que votre site soit en haut de la liste."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Et si je n\u2019ai pas encore de nom de domaine ou d\u2019h\u00e9bergement ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pas de souci ! Je vous aide \u00e0 choisir et configurer un nom de domaine et un h\u00e9bergement. C\u2019est inclus dans chaque formule."
+          }
+        }
+      ]
     }
   ]
 }
@@ -335,7 +381,7 @@
         <form id="contactForm" action="https://formsubmit.co/ajax/hello@izey.dev" method="POST">
           <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="_subject" value="Nouveau message via izey.dev">
-          <input type="text" name="_honey" style="display:none">
+          <input type="text" name="_honey" style="position:absolute;left:-9999px" tabindex="-1" autocomplete="off">
           <div class="form-row">
             <div class="form-group">
               <label for="nom">Nom</label>
@@ -389,6 +435,7 @@
       <li><a href="#formules">Formules</a></li>
       <li><a href="#contact">Contact</a></li>
       <li><a href="/fr/privacy/">Confidentialit&eacute;</a></li>
+      <li><a href="/fr/voorwaarden/">Conditions</a></li>
       <li><button type="button" class="cookie-settings-btn" id="cookieSettings">Param&egrave;tres cookies</button></li>
     </ul>
   </div>
@@ -403,7 +450,7 @@
   </div>
 </div>
 
-<script src="/script.js"></script>
+<script src="/script.js" defer></script>
 
 </body>
 </html>

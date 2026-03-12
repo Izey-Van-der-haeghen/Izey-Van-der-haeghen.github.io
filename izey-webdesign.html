@@ -444,7 +444,7 @@
         <form id="contactForm" action="https://formsubmit.co/ajax/hello@izey.dev" method="POST">
           <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="_subject" value="Nieuw bericht via izey.dev">
-          <input type="text" name="_honey" style="display:none">
+          <input type="text" name="_honey" style="position:absolute;left:-9999px" tabindex="-1" autocomplete="off">
           <div class="form-row">
             <div class="form-group">
               <label for="naam">Naam</label>
@@ -498,6 +498,7 @@
       <li><a href="#pakketten">Pakketten</a></li>
       <li><a href="#contact">Contact</a></li>
       <li><a href="/privacy/">Privacybeleid</a></li>
+      <li><a href="/voorwaarden/">Voorwaarden</a></li>
       <li><button type="button" class="cookie-settings-btn" id="cookieSettings">Cookie-instellingen</button></li>
     </ul>
   </div>
@@ -512,7 +513,7 @@
   </div>
 </div>
 
-<script src="/script.js"></script>
+<script src="/script.js" defer></script>
 
 </body>
 </html>

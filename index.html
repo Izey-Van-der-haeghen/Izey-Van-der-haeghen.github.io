@@ -128,6 +128,52 @@
           }
         ]
       }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://izey.dev/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Hoe lang duurt het om mijn website te maken?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "De meeste websites lever ik op binnen 5 tot 7 werkdagen na ontvangst van alle teksten en afbeeldingen."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Moet ik zelf teksten en foto's aanleveren?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Foto's van je zaak of diensten lever je zelf aan. Bij het Multi-Page pakket help ik je ook met het schrijven van goede teksten voor op je website."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kan ik later nog wijzigingen laten doen?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Zeker! Met het onderhoudspakket zijn kleine wijzigingen inbegrepen. Zonder onderhoudspakket kun je altijd losse wijzigingen aanvragen tegen een eerlijke prijs."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wat is SEO en waarom heb ik dat nodig?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "SEO staat voor Search Engine Optimization. Het zorgt ervoor dat jouw website gevonden wordt in Google. Als iemand in jouw buurt zoekt naar wat jij aanbiedt, wil je dat jouw website bovenaan staat."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wat als ik nog geen domeinnaam of hosting heb?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Geen probleem! Ik help je met het kiezen en opzetten van een domeinnaam en hosting. Dat zit inbegrepen bij elk pakket."
+          }
+        }
+      ]
     }
   ]
 }
@@ -446,7 +492,7 @@
         <form id="contactForm" action="https://formsubmit.co/ajax/hello@izey.dev" method="POST">
           <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="_subject" value="Nieuw bericht via izey.dev">
-          <input type="text" name="_honey" style="display:none">
+          <input type="text" name="_honey" style="position:absolute;left:-9999px" tabindex="-1" autocomplete="off">
           <div class="form-row">
             <div class="form-group">
               <label for="naam">Naam</label>
@@ -500,6 +546,7 @@
       <li><a href="#pakketten">Pakketten</a></li>
       <li><a href="#contact">Contact</a></li>
       <li><a href="/privacy/">Privacybeleid</a></li>
+      <li><a href="/voorwaarden/">Voorwaarden</a></li>
       <li><button type="button" class="cookie-settings-btn" id="cookieSettings">Cookie-instellingen</button></li>
     </ul>
   </div>
@@ -514,7 +561,7 @@
   </div>
 </div>
 
-<script src="/script.js"></script>
+<script src="/script.js" defer></script>
 
 </body>
 </html>
