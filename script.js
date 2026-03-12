@@ -147,12 +147,14 @@ document.querySelectorAll('.faq-question').forEach(function(btn) {
 
   function updateWaPosition() {
     if (!waFloat) return;
-    if (cookieBanner.classList.contains('show')) {
-      var bannerHeight = cookieBanner.offsetHeight;
-      waFloat.style.bottom = (bannerHeight + 16) + 'px';
-    } else {
-      waFloat.style.bottom = '';
-    }
+    requestAnimationFrame(function() {
+      if (cookieBanner.classList.contains('show')) {
+        var bannerHeight = cookieBanner.offsetHeight;
+        waFloat.style.bottom = (bannerHeight + 16) + 'px';
+      } else {
+        waFloat.style.bottom = '';
+      }
+    });
   }
 
   function hideBanner() {
