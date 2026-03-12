@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="nl-BE">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pagina niet gevonden | Izey</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1B2A4A;
+    --accent: #D97706;
+    --warm-white: #FAFAF8;
+    --text: #2D3748;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--text);
+    background: var(--warm-white);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+  }
+  .container { max-width: 500px; }
+  h1 {
+    font-family: 'Playfair Display', serif;
+    color: var(--navy);
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+  }
+  h1 span { color: var(--accent); }
+  p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    color: var(--text);
+  }
+  .links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .links a {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: opacity 0.2s;
+  }
+  .links a:hover { opacity: 0.85; }
+  .btn-nl {
+    background: var(--navy);
+    color: #fff;
+  }
+  .btn-fr {
+    background: transparent;
+    color: var(--navy);
+    border: 2px solid var(--navy);
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>404<span>.</span></h1>
+  <p>Deze pagina bestaat niet.<br>Cette page n'existe pas.</p>
+  <div class="links">
+    <a href="/" class="btn-nl">Naar de homepage</a>
+    <a href="/fr/" class="btn-fr">Page d'accueil</a>
+  </div>
+</div>
+</body>
+</html>

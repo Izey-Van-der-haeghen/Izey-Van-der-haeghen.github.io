@@ -20,6 +20,7 @@
 <meta property="og:image" content="https://izey.dev/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Izey - Cr&eacute;ation de Sites Web pour Ind&eacute;pendants en Belgique">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://izey.dev/og-image.png">
 <meta name="twitter:title" content="Cr&eacute;ation de Sites Web pour Ind&eacute;pendants en Belgique | Izey">
@@ -34,6 +35,15 @@
 {
   "@context": "https://schema.org",
   "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://izey.dev/#website",
+      "url": "https://izey.dev/",
+      "name": "Izey",
+      "description": "Sites web professionnels pour ind\u00e9pendants en Belgique",
+      "inLanguage": ["nl-BE", "fr-BE"],
+      "publisher": { "@id": "https://izey.dev/#organization" }
+    },
     {
       "@type": "WebPage",
       "@id": "https://izey.dev/fr/#webpage",
@@ -54,6 +64,8 @@
       "address": { "@type": "PostalAddress", "addressCountry": "BE" },
       "areaServed": { "@type": "Country", "name": "Belgium" },
       "priceRange": "\u20ac1400 - \u20ac3500",
+      "image": "https://izey.dev/og-image.png",
+      "logo": "https://izey.dev/favicon.svg",
       "knowsLanguage": ["nl", "fr"],
       "founder": {
         "@type": "Person",
