@@ -25,6 +25,7 @@
 <meta name="twitter:image" content="https://izey.dev/og-image.png">
 <meta name="twitter:title" content="Cr&eacute;ation de Sites Web pour Ind&eacute;pendants en Belgique | Izey">
 <meta name="twitter:description" content="Sites web professionnels pour ind&eacute;pendants en Belgique. Beau design, visible sur Google, prix honn&ecirc;tes.">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="theme-color" content="#1B2A4A">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,97 +37,14 @@
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "WebSite",
-      "@id": "https://izey.dev/#website",
-      "url": "https://izey.dev/",
-      "name": "Izey",
-      "description": "Sites web professionnels pour ind\u00e9pendants en Belgique",
-      "inLanguage": ["nl-BE", "fr-BE"],
-      "publisher": { "@id": "https://izey.dev/#organization" }
-    },
-    {
       "@type": "WebPage",
       "@id": "https://izey.dev/fr/#webpage",
       "url": "https://izey.dev/fr/",
       "name": "Cr\u00e9ation de Sites Web pour Ind\u00e9pendants en Belgique | Izey",
       "description": "Sites web professionnels pour ind\u00e9pendants en Belgique. Des sites qui attirent des clients, avec SEO inclus.",
       "inLanguage": "fr-BE",
-      "isPartOf": { "@id": "https://izey.dev/#website" }
-    },
-    {
-      "@type": "ProfessionalService",
-      "@id": "https://izey.dev/#organization",
-      "name": "Izey",
-      "url": "https://izey.dev/",
-      "email": "hello@izey.dev",
-      "telephone": "+32472891566",
-      "description": "Cr\u00e9ation de sites web et SEO pour ind\u00e9pendants en Belgique.",
-      "address": { "@type": "PostalAddress", "addressCountry": "BE" },
-      "areaServed": { "@type": "Country", "name": "Belgium" },
-      "priceRange": "\u20ac1400 - \u20ac3500",
-      "image": "https://izey.dev/og-image.png",
-      "logo": "https://izey.dev/favicon.svg",
-      "knowsLanguage": ["nl", "fr"],
-      "founder": {
-        "@type": "Person",
-        "name": "Izey",
-        "jobTitle": "Expert SEO & Web Designer"
-      },
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Forfaits Web Design",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "One-Pager",
-              "description": "Site web professionnel sur une seule page, adapt\u00e9 mobile, formulaire de contact, SEO inclus, 1 mois de maintenance gratuit."
-            },
-            "price": "1400",
-            "priceCurrency": "EUR",
-            "priceSpecification": {
-              "@type": "UnitPriceSpecification",
-              "price": "1400",
-              "priceCurrency": "EUR",
-              "valueAddedTaxIncluded": false
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Multi-Page",
-              "description": "Site web multi-pages, aide \u00e0 la r\u00e9daction, visible sur Google et Google Maps, 3 mois de maintenance gratuit."
-            },
-            "price": "3500",
-            "priceCurrency": "EUR",
-            "priceSpecification": {
-              "@type": "UnitPriceSpecification",
-              "price": "3500",
-              "priceCurrency": "EUR",
-              "valueAddedTaxIncluded": false
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Maintenance",
-              "description": "Maintenance mensuelle: h\u00e9bergement, petites modifications, surveillance, rapport SEO mensuel."
-            },
-            "price": "100",
-            "priceCurrency": "EUR",
-            "priceSpecification": {
-              "@type": "UnitPriceSpecification",
-              "price": "100",
-              "priceCurrency": "EUR",
-              "unitCode": "MON",
-              "valueAddedTaxIncluded": false
-            }
-          }
-        ]
-      }
+      "isPartOf": { "@id": "https://izey.dev/#website" },
+      "about": { "@id": "https://izey.dev/#organization" }
     }
   ]
 }
@@ -146,14 +64,14 @@
       <li><a href="https://wa.me/32472891566" class="nav-wa">WhatsApp</a></li>
       <li><a href="#contact" class="nav-cta">Consultation gratuite</a></li>
       <li class="lang-picker">
-        <button class="lang-btn" id="langBtn">FR &#9662;</button>
+        <button type="button" class="lang-btn" id="langBtn" aria-expanded="false">FR &#9662;</button>
         <div class="lang-dropdown" id="langDropdown">
           <a href="/">NL Nederlands</a>
           <a href="/fr/" class="active">FR Fran&ccedil;ais</a>
         </div>
       </li>
     </ul>
-    <button class="menu-toggle" id="menuToggle" aria-label="Ouvrir le menu">
+    <button type="button" class="menu-toggle" id="menuToggle" aria-expanded="false" aria-label="Ouvrir le menu">
       <span></span><span></span><span></span>
     </button>
   </div>
@@ -173,7 +91,7 @@
         <a href="#contact" class="btn-secondary">Consultation gratuite</a>
       </div>
     </div>
-    <div class="hero-visual reveal">
+    <div class="hero-visual">
       <div class="browser-mockup">
         <div class="browser-bar">
           <div class="browser-dot"></div>
@@ -194,11 +112,11 @@
         </div>
       </div>
       <div class="float-badge top-left">
-        <svg width="14" height="14" viewBox="0 0 20 20" fill="#059669"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+        <svg aria-hidden="true" width="14" height="14" viewBox="0 0 20 20" fill="#059669"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
         Optimis&eacute; SEO
       </div>
       <div class="float-badge bottom-right">
-        <svg width="14" height="14" viewBox="0 0 20 20" fill="#D97706"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        <svg aria-hidden="true" width="14" height="14" viewBox="0 0 20 20" fill="#D97706"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
         Adapt&eacute; mobile
       </div>
     </div>
@@ -369,23 +287,23 @@
     </div>
     <div class="faq-grid reveal">
       <div class="faq-item">
-        <button class="faq-question">Combien de temps faut-il pour cr&eacute;er mon site ?<span class="faq-icon">+</span></button>
+        <button type="button" class="faq-question" aria-expanded="false">Combien de temps faut-il pour cr&eacute;er mon site ?<span class="faq-icon">+</span></button>
         <div class="faq-answer"><p>La plupart des sites sont livr&eacute;s dans les 5 &agrave; 7 jours ouvrables apr&egrave;s r&eacute;ception de tous les textes et images. Vous &ecirc;tes press&eacute; ? Dites-le moi et on regarde ensemble ce qui est possible.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-question">Dois-je fournir les textes et photos moi-m&ecirc;me ?<span class="faq-icon">+</span></button>
+        <button type="button" class="faq-question" aria-expanded="false">Dois-je fournir les textes et photos moi-m&ecirc;me ?<span class="faq-icon">+</span></button>
         <div class="faq-answer"><p>Les photos de votre activit&eacute; ou de vos services, c'est vous qui les fournissez (des photos prises au t&eacute;l&eacute;phone, c'est tr&egrave;s bien !). Avec la formule Multi-Page, je vous aide aussi &agrave; r&eacute;diger de bons textes pour votre site.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-question">Est-ce que je peux faire des modifications plus tard ?<span class="faq-icon">+</span></button>
+        <button type="button" class="faq-question" aria-expanded="false">Est-ce que je peux faire des modifications plus tard ?<span class="faq-icon">+</span></button>
         <div class="faq-answer"><p>Bien s&ucirc;r ! Avec la formule maintenance, les petites modifications sont incluses. Sans maintenance, vous pouvez toujours demander des modifications ponctuelles &agrave; un prix honn&ecirc;te.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-question">C'est quoi le SEO et pourquoi j'en ai besoin ?<span class="faq-icon">+</span></button>
+        <button type="button" class="faq-question" aria-expanded="false">C'est quoi le SEO et pourquoi j'en ai besoin ?<span class="faq-icon">+</span></button>
         <div class="faq-answer"><p>SEO, c'est Search Engine Optimization. En gros : &ccedil;a fait en sorte que votre site apparaisse dans Google. Si quelqu'un pr&egrave;s de chez vous cherche ce que vous proposez, vous voulez que votre site soit en haut de la liste. Sans SEO, votre site c'est comme un magasin dans une ruelle o&ugrave; personne ne passe.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-question">Et si je n'ai pas encore de nom de domaine ou d'h&eacute;bergement ?<span class="faq-icon">+</span></button>
+        <button type="button" class="faq-question" aria-expanded="false">Et si je n'ai pas encore de nom de domaine ou d'h&eacute;bergement ?<span class="faq-icon">+</span></button>
         <div class="faq-answer"><p>Pas de souci ! Je vous aide &agrave; choisir et configurer un nom de domaine et un h&eacute;bergement. C'est inclus dans chaque formule.</p></div>
       </div>
     </div>
@@ -458,7 +376,7 @@
 
 <!-- WHATSAPP FLOAT -->
 <a href="https://wa.me/32472891566" class="wa-float" aria-label="Discuter sur WhatsApp">
-  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
 <!-- FOOTER -->
@@ -471,7 +389,7 @@
       <li><a href="#formules">Formules</a></li>
       <li><a href="#contact">Contact</a></li>
       <li><a href="/fr/privacy/">Confidentialit&eacute;</a></li>
-      <li><button class="cookie-settings-btn" id="cookieSettings">Param&egrave;tres cookies</button></li>
+      <li><button type="button" class="cookie-settings-btn" id="cookieSettings">Param&egrave;tres cookies</button></li>
     </ul>
   </div>
 </footer>
@@ -480,8 +398,8 @@
 <div class="cookie-banner" id="cookieBanner">
   <p>Ce site utilise des cookies pour des statistiques anonymes de visiteurs. <a href="/fr/privacy/">En savoir plus</a></p>
   <div class="cookie-btns">
-    <button class="cookie-btn cookie-accept" id="cookieAccept">Accepter</button>
-    <button class="cookie-btn cookie-decline" id="cookieDecline">Refuser</button>
+    <button type="button" class="cookie-btn cookie-accept" id="cookieAccept">Accepter</button>
+    <button type="button" class="cookie-btn cookie-decline" id="cookieDecline">Refuser</button>
   </div>
 </div>
 
