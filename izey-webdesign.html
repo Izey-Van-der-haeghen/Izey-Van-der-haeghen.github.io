@@ -1,16 +1,25 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="nl-BE">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Izey | Webdesign voor Zelfstandigen</title>
+<title>Webdesign voor Zelfstandigen in Belgi&euml; | Izey</title>
 <meta name="description" content="Professionele websites voor zelfstandigen in België. One-pagers die klanten aantrekken, met SEO inbegrepen. Eerlijke prijzen, persoonlijke aanpak.">
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
-<meta property="og:title" content="Izey | Webdesign voor Zelfstandigen">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://izey.dev/">
+<link rel="alternate" hreflang="nl" href="https://izey.dev/">
+<link rel="alternate" hreflang="fr" href="https://izey.dev/fr/">
+<link rel="alternate" hreflang="x-default" href="https://izey.dev/">
+<meta property="og:title" content="Webdesign voor Zelfstandigen in Belgi&euml; | Izey">
 <meta property="og:description" content="Professionele websites voor zelfstandigen in België. Mooi ontwerp, vindbaar in Google, eerlijke prijzen.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://izey.dev">
+<meta property="og:url" content="https://izey.dev/">
 <meta property="og:locale" content="nl_BE">
+<meta property="og:locale:alternate" content="fr_BE">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Webdesign voor Zelfstandigen in Belgi&euml; | Izey">
+<meta name="twitter:description" content="Professionele websites voor zelfstandigen in België. Mooi ontwerp, vindbaar in Google, eerlijke prijzen.">
+<meta name="theme-color" content="#1B2A4A">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8ER7RD2CPX"></script>
 <script>
@@ -19,7 +28,10 @@
   gtag('js', new Date());
   gtag('config', 'G-8ER7RD2CPX');
 </script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
 <style>
   :root {
     --navy: #1B2A4A;
@@ -45,6 +57,10 @@
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+  }
 
   body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -915,7 +931,7 @@
   }
 
   .faq-item.active .faq-answer {
-    max-height: 200px;
+    max-height: 600px;
     padding-bottom: 1.3rem;
   }
 
@@ -1310,6 +1326,104 @@
     fill: white;
   }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://izey.dev/#website",
+      "url": "https://izey.dev",
+      "name": "Izey",
+      "description": "Professionele websites voor zelfstandigen in Belgi\u00eb",
+      "inLanguage": "nl-BE",
+      "publisher": { "@id": "https://izey.dev/#organization" }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://izey.dev/#webpage",
+      "url": "https://izey.dev/",
+      "name": "Webdesign voor Zelfstandigen in Belgi\u00eb | Izey",
+      "description": "Professionele websites voor zelfstandigen in Belgi\u00eb. One-pagers die klanten aantrekken, met SEO inbegrepen.",
+      "inLanguage": "nl-BE",
+      "isPartOf": { "@id": "https://izey.dev/#website" }
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://izey.dev/#organization",
+      "name": "Izey",
+      "url": "https://izey.dev",
+      "email": "hello@izey.dev",
+      "telephone": "+32472891566",
+      "description": "Webdesign en SEO voor zelfstandigen in Belgi\u00eb. Professionele websites die klanten opleveren.",
+      "address": { "@type": "PostalAddress", "addressCountry": "BE" },
+      "areaServed": { "@type": "Country", "name": "Belgium" },
+      "priceRange": "\u20ac1400 - \u20ac3500",
+      "knowsLanguage": ["nl", "fr"],
+      "founder": {
+        "@type": "Person",
+        "name": "Izey",
+        "jobTitle": "SEO Expert & Webdesigner"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Webdesign Pakketten",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "One-Pager",
+              "description": "Professionele one-page website, mobielvriendelijk, contactformulier, SEO, hosting & domein hulp, 1 maand gratis onderhoud."
+            },
+            "price": "1400",
+            "priceCurrency": "EUR",
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "price": "1400",
+              "priceCurrency": "EUR",
+              "valueAddedTaxIncluded": false
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Multi-Page",
+              "description": "Website met meerdere pagina's, hulp bij teksten, Google & Google Maps, social media koppeling, 3 maanden gratis onderhoud."
+            },
+            "price": "3500",
+            "priceCurrency": "EUR",
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "price": "3500",
+              "priceCurrency": "EUR",
+              "valueAddedTaxIncluded": false
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Onderhoud",
+              "description": "Maandelijks websiteonderhoud: hosting, kleine aanpassingen, uptime monitoring, maandelijks SEO-verslag."
+            },
+            "price": "100",
+            "priceCurrency": "EUR",
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "price": "100",
+              "priceCurrency": "EUR",
+              "unitCode": "MON",
+              "valueAddedTaxIncluded": false
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -1621,19 +1735,20 @@
         <form id="contactForm" action="https://formsubmit.co/ajax/hello@izey.dev" method="POST">
           <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="_subject" value="Nieuw bericht via izey.dev">
+          <input type="text" name="_honey" style="display:none">
           <div class="form-row">
             <div class="form-group">
-              <label>Naam</label>
-              <input type="text" name="naam" placeholder="Je volledige naam" required>
+              <label for="naam">Naam</label>
+              <input type="text" name="naam" id="naam" placeholder="Je volledige naam" required>
             </div>
             <div class="form-group">
-              <label>E-mail</label>
-              <input type="email" name="email" placeholder="je@email.com" required>
+              <label for="email">E-mail</label>
+              <input type="email" name="email" id="email" placeholder="je@email.com" required>
             </div>
           </div>
           <div class="form-group">
-            <label>Pakket</label>
-            <select name="pakket">
+            <label for="pakket">Pakket</label>
+            <select name="pakket" id="pakket">
               <option value="">Kies een pakket (optioneel)</option>
               <option value="One-Pager">One-Pager | &euro;1.400</option>
               <option value="Multi-Page">Multi-Page | &euro;3.500</option>
@@ -1642,8 +1757,8 @@
             </select>
           </div>
           <div class="form-group">
-            <label>Bericht</label>
-            <textarea name="bericht" placeholder="Vertel kort over je zaak en wat je nodig hebt..." required></textarea>
+            <label for="bericht">Bericht</label>
+            <textarea name="bericht" id="bericht" placeholder="Vertel kort over je zaak en wat je nodig hebt..." required></textarea>
           </div>
           <button type="submit" class="btn-submit" id="submitBtn">Verstuur bericht</button>
         </form>
