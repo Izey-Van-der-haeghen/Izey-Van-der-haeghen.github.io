@@ -1912,20 +1912,6 @@
     });
   });
 
-  // Cookie consent
-  const cookieBanner = document.getElementById('cookieBanner');
-  if (!localStorage.getItem('cookies-accepted')) {
-    cookieBanner.classList.add('show');
-  }
-  document.getElementById('cookieAccept').addEventListener('click', () => {
-    localStorage.setItem('cookies-accepted', 'true');
-    cookieBanner.classList.remove('show');
-    loadGA();
-  });
-  document.getElementById('cookieDecline').addEventListener('click', () => {
-    localStorage.setItem('cookies-accepted', 'false');
-    cookieBanner.classList.remove('show');
-  });
 </script>
 
 <!-- COOKIE BANNER -->
@@ -1936,6 +1922,24 @@
     <button class="cookie-btn cookie-decline" id="cookieDecline">Refuser</button>
   </div>
 </div>
+
+<script>
+  (function() {
+    var cookieBanner = document.getElementById('cookieBanner');
+    if (!localStorage.getItem('cookies-accepted')) {
+      cookieBanner.classList.add('show');
+    }
+    document.getElementById('cookieAccept').addEventListener('click', function() {
+      localStorage.setItem('cookies-accepted', 'true');
+      cookieBanner.classList.remove('show');
+      loadGA();
+    });
+    document.getElementById('cookieDecline').addEventListener('click', function() {
+      localStorage.setItem('cookies-accepted', 'false');
+      cookieBanner.classList.remove('show');
+    });
+  })();
+</script>
 
 </body>
 </html>
