@@ -1,0 +1,17 @@
+# Izey - Web Design & SEO for Belgian Self-Employed
+
+> Professional website creation for self-employed professionals and small businesses in Belgium.
+> Bilingual service (Dutch & French). SEO included with every package. Prices from EUR 999.
+
+## Services
+- [Homepage (NL)](https://izey.dev/): Full service overview, pricing, process, FAQ
+- [Homepage (FR)](https://izey.dev/fr/): French version of all services
+
+## Key Facts
+- Location: Belgium (nationwide service)
+- Languages: Dutch (nl-BE), French (fr-BE)
+- Pricing: One-Pager EUR 999, Multi-Page EUR 2800, Maintenance EUR 79/month (all excl. VAT)
+- Delivery: 5-7 business days
+- Contact: hello@izey.dev | +32 472 89 15 66 (WhatsApp)
+- Specialization: Websites for hairdressers, plumbers, bakers, beauticians, and other local service providers
+- SEO included with every website package
