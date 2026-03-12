@@ -122,7 +122,7 @@ if (contactForm && submitBtn && formSuccess) {
 // FAQ accordion
 document.querySelectorAll('.faq-question').forEach(function(btn) {
   btn.addEventListener('click', function() {
-    var item = btn.parentElement;
+    var item = btn.closest('.faq-item');
     var isActive = item.classList.contains('active');
     document.querySelectorAll('.faq-item').forEach(function(i) {
       i.classList.remove('active');
