@@ -135,23 +135,44 @@ document.querySelectorAll('.faq-question').forEach(function(btn) {
   });
 });
 
-// Cookie consent
+// Cookie consent + WhatsApp float position
 (function() {
   var cookieBanner = document.getElementById('cookieBanner');
   var cookieAccept = document.getElementById('cookieAccept');
   var cookieDecline = document.getElementById('cookieDecline');
   var cookieSettings = document.getElementById('cookieSettings');
+  var waFloat = document.querySelector('.wa-float');
 
   if (!cookieBanner) return;
 
-  if (!localStorage.getItem('cookies-accepted')) {
+  function updateWaPosition() {
+    if (!waFloat) return;
+    if (cookieBanner.classList.contains('show')) {
+      var bannerHeight = cookieBanner.offsetHeight;
+      waFloat.style.bottom = (bannerHeight + 16) + 'px';
+    } else {
+      waFloat.style.bottom = '';
+    }
+  }
+
+  function hideBanner() {
+    cookieBanner.classList.remove('show');
+    updateWaPosition();
+  }
+
+  function showBanner() {
     cookieBanner.classList.add('show');
+    updateWaPosition();
+  }
+
+  if (!localStorage.getItem('cookies-accepted')) {
+    showBanner();
   }
 
   if (cookieAccept) {
     cookieAccept.addEventListener('click', function() {
       localStorage.setItem('cookies-accepted', 'true');
-      cookieBanner.classList.remove('show');
+      hideBanner();
       loadGA();
     });
   }
@@ -159,16 +180,18 @@ document.querySelectorAll('.faq-question').forEach(function(btn) {
   if (cookieDecline) {
     cookieDecline.addEventListener('click', function() {
       localStorage.setItem('cookies-accepted', 'false');
-      cookieBanner.classList.remove('show');
+      hideBanner();
       revokeGA();
     });
   }
 
-  // Cookie settings button in footer - re-shows the banner
   if (cookieSettings) {
     cookieSettings.addEventListener('click', function() {
       localStorage.removeItem('cookies-accepted');
-      cookieBanner.classList.add('show');
+      showBanner();
     });
   }
+
+  // Recalculate on resize (banner height may change)
+  window.addEventListener('resize', updateWaPosition);
 })();

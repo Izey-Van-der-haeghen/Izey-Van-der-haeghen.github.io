@@ -1206,7 +1206,7 @@ footer p { font-size: 0.82rem; }
 /* ====== WHATSAPP FLOAT ====== */
 .wa-float {
   position: fixed;
-  bottom: 5rem;
+  bottom: 1.5rem;
   right: 1.5rem;
   width: 56px;
   height: 56px;
@@ -1217,7 +1217,7 @@ footer p { font-size: 0.82rem; }
   justify-content: center;
   box-shadow: 0 4px 20px rgba(27,122,62,0.35);
   z-index: 99;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: transform 0.2s, box-shadow 0.2s, bottom 0.3s;
   text-decoration: none;
 }
 
