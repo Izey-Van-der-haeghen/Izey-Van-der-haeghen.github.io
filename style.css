@@ -606,7 +606,7 @@ section { padding: 5.5rem 2rem; }
   border-top: 1px solid var(--border);
 }
 
-.stat-item h4 {
+.stat-item .stat-value {
   font-family: 'Playfair Display', serif;
   font-size: 1.6rem;
   color: var(--navy);
@@ -949,36 +949,6 @@ section { padding: 5.5rem 2rem; }
 
 .contact-detail a:hover { color: var(--accent); }
 
-.contact-guarantee {
-  margin-top: 2rem;
-  padding: 1.2rem;
-  background: white;
-  border-radius: 10px;
-  border: 1px solid var(--border);
-  display: flex;
-  align-items: flex-start;
-  gap: 0.8rem;
-}
-
-.contact-guarantee .g-icon {
-  font-size: 1.3rem;
-  line-height: 1;
-  flex-shrink: 0;
-  margin-top: 2px;
-}
-
-.contact-guarantee p {
-  font-size: 0.85rem;
-  color: var(--text-light);
-  line-height: 1.5;
-}
-
-.contact-guarantee strong {
-  color: var(--navy);
-  display: block;
-  margin-bottom: 0.15rem;
-  font-size: 0.88rem;
-}
 
 .contact-form {
   background: white;
