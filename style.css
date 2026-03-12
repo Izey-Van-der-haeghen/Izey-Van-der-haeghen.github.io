@@ -528,9 +528,6 @@ section { padding: 5.5rem 2rem; }
   grid-template-columns: 5fr 6fr;
   gap: 4rem;
 }
-
-.about-grid > :only-child {
-  grid-column: 1 / -1;
   align-items: center;
 }
 
@@ -1174,6 +1171,7 @@ footer p { font-size: 0.82rem; }
   .nav-cta { text-align: center; }
   .menu-toggle { display: block; }
 
+
   .hero { padding: 8rem 1.5rem 4rem; }
 
   .about-grid,
@@ -1202,6 +1200,7 @@ footer p { font-size: 0.82rem; }
     flex-direction: column;
     text-align: center;
   }
+
 }
 
 /* ====== SCROLL REVEAL ====== */
