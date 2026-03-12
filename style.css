@@ -527,7 +527,6 @@ section { padding: 5.5rem 2rem; }
   display: grid;
   grid-template-columns: 5fr 6fr;
   gap: 4rem;
-}
   align-items: center;
 }
 
@@ -1170,7 +1169,6 @@ footer p { font-size: 0.82rem; }
   .nav-links.open { display: flex; }
   .nav-cta { text-align: center; }
   .menu-toggle { display: block; }
-
 
   .hero { padding: 8rem 1.5rem 4rem; }
 
