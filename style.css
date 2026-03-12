@@ -850,6 +850,7 @@ section { padding: 5.5rem 2rem; }
   font-size: inherit;
   font-weight: inherit;
   color: inherit;
+  display: contents;
 }
 
 .faq-question {
