@@ -3,15 +3,15 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://izey.dev/</loc>
-    <xhtml:link rel="alternate" hreflang="nl" href="https://izey.dev/" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://izey.dev/fr/" />
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://izey.dev/" />
+    <xhtml:link rel="alternate" hreflang="fr-BE" href="https://izey.dev/fr/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://izey.dev/" />
     <lastmod>2026-03-12</lastmod>
   </url>
   <url>
     <loc>https://izey.dev/fr/</loc>
-    <xhtml:link rel="alternate" hreflang="nl" href="https://izey.dev/" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://izey.dev/fr/" />
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://izey.dev/" />
+    <xhtml:link rel="alternate" hreflang="fr-BE" href="https://izey.dev/fr/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://izey.dev/" />
     <lastmod>2026-03-12</lastmod>
   </url>
