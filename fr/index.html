@@ -20,13 +20,22 @@
 <meta name="twitter:title" content="Cr&eacute;ation de Sites Web pour Ind&eacute;pendants en Belgique | Izey">
 <meta name="twitter:description" content="Sites web professionnels pour ind&eacute;pendants en Belgique. Beau design, visible sur Google, prix honn&ecirc;tes.">
 <meta name="theme-color" content="#1B2A4A">
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-8ER7RD2CPX"></script>
+<!-- Google Analytics - only loaded after cookie consent -->
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-8ER7RD2CPX');
+  function loadGA() {
+    if (document.getElementById('ga-script')) return;
+    var s = document.createElement('script');
+    s.id = 'ga-script';
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-8ER7RD2CPX';
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', 'G-8ER7RD2CPX');
+  }
+  if (localStorage.getItem('cookies-accepted') === 'true') { loadGA(); }
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1325,6 +1334,42 @@
     height: 28px;
     fill: white;
   }
+
+  /* ====== COOKIE BANNER ====== */
+  .cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--navy);
+    color: #fff;
+    padding: 1rem 1.5rem;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    z-index: 10000;
+    font-size: 0.88rem;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.15);
+  }
+  .cookie-banner.show { display: flex; }
+  .cookie-banner p { margin: 0; max-width: 600px; }
+  .cookie-banner a { color: var(--accent-light); }
+  .cookie-btns { display: flex; gap: 0.5rem; flex-shrink: 0; }
+  .cookie-btn {
+    padding: 0.5rem 1.2rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .cookie-accept { background: var(--accent); color: #fff; }
+  .cookie-accept:hover { background: var(--accent-light); }
+  .cookie-decline { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.3); }
+  .cookie-decline:hover { border-color: #fff; }
 </style>
 <script type="application/ld+json">
 {
@@ -1777,6 +1822,7 @@
       <li><a href="#a-propos">A propos</a></li>
       <li><a href="#formules">Formules</a></li>
       <li><a href="#contact">Contact</a></li>
+      <li><a href="/fr/privacy/">Confidentialit&eacute;</a></li>
     </ul>
   </div>
 </footer>
@@ -1861,7 +1907,31 @@
       if (!isActive) item.classList.add('active');
     });
   });
+
+  // Cookie consent
+  const cookieBanner = document.getElementById('cookieBanner');
+  if (!localStorage.getItem('cookies-accepted')) {
+    cookieBanner.classList.add('show');
+  }
+  document.getElementById('cookieAccept').addEventListener('click', () => {
+    localStorage.setItem('cookies-accepted', 'true');
+    cookieBanner.classList.remove('show');
+    loadGA();
+  });
+  document.getElementById('cookieDecline').addEventListener('click', () => {
+    localStorage.setItem('cookies-accepted', 'false');
+    cookieBanner.classList.remove('show');
+  });
 </script>
+
+<!-- COOKIE BANNER -->
+<div class="cookie-banner" id="cookieBanner">
+  <p>Ce site utilise des cookies pour des statistiques anonymes de visiteurs. <a href="/fr/privacy/">En savoir plus</a></p>
+  <div class="cookie-btns">
+    <button class="cookie-btn cookie-accept" id="cookieAccept">Accepter</button>
+    <button class="cookie-btn cookie-decline" id="cookieDecline">Refuser</button>
+  </div>
+</div>
 
 </body>
 </html>
